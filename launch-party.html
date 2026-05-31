@@ -13,6 +13,7 @@
             --event-gold: #c5a059;
             --event-dark: #050505;
             --event-glass: rgba(255, 255, 255, 0.05);
+            --phone-bg: #1a1a1a;
         }
 
         body.event-demo {
@@ -59,128 +60,120 @@
             z-index: 1;
         }
 
-        .countdown {
-            display: flex;
-            gap: 2rem;
-            z-index: 1;
+        /* Phone Mockup */
+        .mockup-section {
+            padding: 8rem 0;
+            background: #000;
         }
 
-        .count-item {
+        .mockup-container {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            margin-top: 4rem;
+        }
+
+        .phone-mockup {
+            width: 280px;
+            height: 560px;
+            background: var(--phone-bg);
+            border: 8px solid #333;
+            border-radius: 40px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 50px 100px -20px rgba(0,0,0,0.5), 0 30px 60px -30px rgba(0,0,0,0.5);
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: #000;
+            padding: 20px;
             display: flex;
             flex-direction: column;
         }
 
-        .count-val {
-            font-size: 2.5rem;
-            font-weight: 700;
+        .mockup-label {
+            margin-top: 1.5rem;
+            text-align: center;
+            font-size: 0.9rem;
             color: var(--event-gold);
-        }
-
-        .count-label {
-            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            opacity: 0.6;
         }
 
-        .itinerary {
-            padding: 5rem 0;
-            background: #0a0a0a;
-        }
-
-        .itinerary-item {
-            display: flex;
-            gap: 2rem;
-            padding: 2rem;
-            border-bottom: 1px solid var(--event-glass);
-            transition: background 0.3s;
-        }
-
-        .itinerary-item:hover {
-            background: var(--event-glass);
-        }
-
-        .time {
-            color: var(--event-gold);
-            font-weight: 700;
-            min-width: 100px;
-        }
-
-        .vibe-check {
-            padding: 5rem 0;
-            text-align: center;
-        }
-
-        .vibe-btns {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .vibe-btn {
-            background: var(--event-glass);
-            border: 1px solid var(--event-gold);
-            color: var(--event-gold);
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .vibe-btn:hover {
-            background: var(--event-gold);
-            color: #000;
-        }
-
-        .social-wall {
-            padding: 5rem 0;
-            background: #000;
-        }
-
-        .wall-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1rem;
-            margin-top: 3rem;
-        }
-
-        .wall-img {
-            aspect-ratio: 1;
-            background: var(--event-glass);
-            border-radius: 8px;
-            overflow: hidden;
+        /* Integration Section */
+        .integration-section {
+            padding: 8rem 0;
+            background: url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80&w=2070') center/cover no-repeat;
             position: relative;
         }
 
-        .wall-img img {
-            width: 100%; height: 100%; object-fit: cover;
-            filter: grayscale(30%);
-            transition: filter 0.3s;
+        .integration-section::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.85);
         }
 
-        .wall-img:hover img {
-            filter: grayscale(0%);
+        .integration-content {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .social-projection {
+            background: var(--event-glass);
+            padding: 2rem;
+            border: 1px solid var(--event-gold);
+            backdrop-filter: blur(10px);
+            border-radius: 4px;
         }
 
-        .back-link {
-            position: fixed;
-            top: 2rem;
-            left: 2rem;
-            color: #fff;
-            text-decoration: none;
-            font-size: 0.8rem;
-            z-index: 100;
-            opacity: 0.5;
-            transition: opacity 0.3s;
+        .projection-screen {
+            aspect-ratio: 16/9;
+            background: #000;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+            padding: 5px;
         }
 
+        .projection-item { background: #111; border: 1px solid #222; }
+
+        /* Existing Styles */
+        .countdown { display: flex; gap: 2rem; z-index: 1; }
+        .count-item { display: flex; flex-direction: column; }
+        .count-val { font-size: 2.5rem; font-weight: 700; color: var(--event-gold); }
+        .count-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.6; }
+
+        .itinerary { padding: 5rem 0; background: #0a0a0a; }
+        .itinerary-item { display: flex; gap: 2rem; padding: 2rem; border-bottom: 1px solid var(--event-glass); transition: background 0.3s; }
+        .itinerary-item:hover { background: var(--event-glass); }
+        .time { color: var(--event-gold); font-weight: 700; min-width: 100px; }
+
+        .vibe-check { padding: 5rem 0; text-align: center; }
+        .vibe-btns { display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; }
+        .vibe-btn { background: var(--event-glass); border: 1px solid var(--event-gold); color: var(--event-gold); padding: 1rem 2.5rem; border-radius: 50px; cursor: pointer; transition: all 0.3s; }
+        .vibe-btn:hover { background: var(--event-gold); color: #000; }
+
+        .social-wall { padding: 5rem 0; background: #000; }
+        .wall-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem; margin-top: 3rem; }
+        .wall-img { aspect-ratio: 1; background: var(--event-glass); border-radius: 8px; overflow: hidden; position: relative; }
+        .wall-img img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(30%); transition: filter 0.3s; }
+        .wall-img:hover img { filter: grayscale(0%); }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .back-link { position: fixed; top: 2rem; left: 2rem; color: #fff; text-decoration: none; font-size: 0.8rem; z-index: 100; opacity: 0.5; transition: opacity 0.3s; }
         .back-link:hover { opacity: 1; }
+
+        @media (max-width: 992px) {
+            .integration-content { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body class="event-demo">
@@ -205,6 +198,79 @@
             </div>
         </div>
     </header>
+
+    <section class="mockup-section">
+        <div class="container">
+            <h2 class="syncopate text-center" style="color: var(--event-gold);">The Mobile Experience</h2>
+            <p class="text-center" style="opacity: 0.6; max-width: 600px; margin: 1rem auto;">A high-impact, single-use interface that serves as the guest's digital companion throughout the night.</p>
+            
+            <div class="mockup-container">
+                <div class="mockup-wrapper">
+                    <div class="phone-mockup">
+                        <div class="phone-screen" style="justify-content: center; align-items: center; text-align: center;">
+                            <div class="syncopate" style="font-size: 0.6rem; color: var(--event-gold); margin-bottom: 1rem;">Digital Invitation</div>
+                            <div style="font-size: 1.5rem; font-weight: 800; border: 1px solid var(--event-gold); padding: 20px;">6A-Z2</div>
+                            <div style="font-size: 0.7rem; margin-top: 1rem; opacity: 0.5;">YOUR ACCESS CODE</div>
+                        </div>
+                    </div>
+                    <div class="mockup-label">VIP Entry</div>
+                </div>
+
+                <div class="mockup-wrapper">
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <div class="syncopate" style="font-size: 0.6rem; color: var(--event-gold); margin-bottom: 2rem;">Itinerary</div>
+                            <div style="font-size: 0.8rem; border-left: 2px solid var(--event-gold); padding-left: 15px; margin-bottom: 20px;">
+                                <div style="color: var(--event-gold); font-weight: 700;">20:00</div>
+                                <div>Arrivals</div>
+                            </div>
+                            <div style="font-size: 0.8rem; border-left: 2px solid #333; padding-left: 15px; opacity: 0.4;">
+                                <div style="font-weight: 700;">21:30</div>
+                                <div>The Reveal</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mockup-label">Live Flow</div>
+                </div>
+
+                <div class="mockup-wrapper">
+                    <div class="phone-mockup">
+                        <div class="phone-screen" style="justify-content: flex-end;">
+                            <div class="syncopate" style="font-size: 0.6rem; color: var(--event-gold); margin-bottom: auto;">Vibe Check</div>
+                            <div style="background: var(--event-gold); color: #000; padding: 10px; border-radius: 4px; margin-bottom: 10px; font-size: 0.7rem; font-weight: 700;">VOTE RECORDED</div>
+                            <div style="font-size: 0.6rem; opacity: 0.5;">ATMOSPHERE UPDATING...</div>
+                        </div>
+                    </div>
+                    <div class="mockup-label">Interactive</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="integration-section">
+        <div class="container integration-content">
+            <div>
+                <h2 class="syncopate" style="color: var(--event-gold); margin-bottom: 2rem;">Physical Integration</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 2rem; line-height: 1.8;">We bridge the gap between the digital and the physical. Your "Sizzle App" isn't just on the guest's phone—it's part of the architecture.</p>
+                <ul style="list-style: none; opacity: 0.8;">
+                    <li style="margin-bottom: 1rem;">&mdash; Real-time social walls projected onto historic facades.</li>
+                    <li style="margin-bottom: 1rem;">&mdash; Lighting cues triggered by collective guest input.</li>
+                    <li style="margin-bottom: 1rem;">&mdash; AR-enabled centerpieces that reveal event lore.</li>
+                </ul>
+            </div>
+            <div class="social-projection">
+                <div style="font-size: 0.7rem; margin-bottom: 1rem; opacity: 0.5;" class="syncopate">Social Wall Projection Example</div>
+                <div class="projection-screen">
+                    <div class="projection-item" style="background: url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&q=80&w=400') center/cover;"></div>
+                    <div class="projection-item" style="background: url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&q=80&w=400') center/cover;"></div>
+                    <div class="projection-item" style="background: url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=400') center/cover;"></div>
+                    <div class="projection-item" style="background: url('https://images.unsplash.com/photo-1514525253361-bee8a4874a73?auto=format&fit=crop&q=80&w=400') center/cover;"></div>
+                    <div class="projection-item" style="background: #000; display: flex; align-items: center; justify-content: center; font-size: 0.5rem;" class="syncopate">@MIDNIGHT</div>
+                    <div class="projection-item" style="background: url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&q=80&w=400') center/cover;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="itinerary container">
         <h2 class="syncopate text-center" style="margin-bottom: 3rem; color: var(--event-gold);">The Flow</h2>
